@@ -14,21 +14,18 @@ struct ColorView: View {
     
     var body: some View {
         Color(
-            uiColor: UIColor(
-                red: CGFloat(red),
-                green: CGFloat(green),
-                blue: CGFloat(blue),
-                alpha: 1)
+            red: red / 255,
+            green: green / 255,
+            blue: blue / 255
         )
             .frame(height: 220)
             .cornerRadius(10)
-            .padding()
      
     }
 }
 
 struct ColorView_Previews: PreviewProvider {
     static var previews: some View {
-        ColorView(red: 1.0, green: 25.0, blue: 0.0)
+        ColorView(red: 130.0, green: 125.0, blue: 255.0)
     }
 }
