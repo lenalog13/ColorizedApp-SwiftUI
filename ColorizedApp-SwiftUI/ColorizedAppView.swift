@@ -13,8 +13,9 @@ struct ColorizedAppView: View {
     @State private var blue = Double.random(in: 1...255).rounded()
     
     var body: some View {
-        VStack(spacing: 30) {
-           ColorView(red: red, green: green, blue: blue)
+        VStack(spacing: 20) {
+            ColorView(red: red, green: green, blue: blue)
+                .padding(10)
             ColorSliderView(value: $red, color: .red)
             ColorSliderView(value: $green, color: .green)
             ColorSliderView(value: $blue, color: .blue)

@@ -19,7 +19,11 @@ struct ColorView: View {
             blue: blue / 255
         )
             .frame(height: 220)
-            .cornerRadius(10)
+            .cornerRadius(15)
+            .overlay(
+                RoundedRectangle(cornerRadius: 15, style: .continuous)
+                    .stroke(Color.black, lineWidth: 1))
+            .shadow(radius: 10)
      
     }
 }
