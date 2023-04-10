@@ -12,16 +12,27 @@ struct ColorizedAppView: View {
     @State private var green = Double.random(in: 1...255).rounded()
     @State private var blue = Double.random(in: 1...255).rounded()
     
+    @FocusState private var focusedField: Bool?
+    
+    
     var body: some View {
         VStack(spacing: 20) {
             ColorView(red: red, green: green, blue: blue)
-                .padding(10)
+                .padding(20)
             ColorSliderView(value: $red, color: .red)
             ColorSliderView(value: $green, color: .green)
             ColorSliderView(value: $blue, color: .blue)
             Spacer()
         }
         .padding()
+        .toolbar {
+            ToolbarItemGroup(placement: .keyboard) {
+                Spacer()
+                Button("Done") {
+                    
+                }
+            }
+        }
     }
 }
 

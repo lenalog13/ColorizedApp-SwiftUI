@@ -23,7 +23,6 @@ struct ColorView: View {
             .overlay(
                 RoundedRectangle(cornerRadius: 15, style: .continuous)
                     .stroke(Color.black, lineWidth: 1))
-            .shadow(radius: 10)
      
     }
 }
