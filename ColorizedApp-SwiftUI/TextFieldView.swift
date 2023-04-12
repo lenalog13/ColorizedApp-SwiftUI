@@ -14,8 +14,10 @@ struct TextFieldView: View {
     @State private var showAlert = false
     
     var body: some View {
-        TextField("", text: $text) {
-            checkValue()
+        TextField("", text: $text) { _ in
+            withAnimation {
+                checkValue()
+            }
         }
         .frame(width: 50)
         .multilineTextAlignment(.center)
