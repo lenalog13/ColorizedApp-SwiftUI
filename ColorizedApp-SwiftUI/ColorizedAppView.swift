@@ -17,31 +17,46 @@ struct ColorizedAppView: View {
     
     var body: some View {
         
-        VStack(spacing: 20) {
-            ColorView(red: red, green: green, blue: blue)
-                .padding(20)
-            ColorSliderView(value: $red, color: .red)
-                .focused($focusedField, equals: .red)
-            ColorSliderView(value: $green, color: .green)
-                .focused($focusedField, equals: .green)
-            ColorSliderView(value: $blue, color: .blue)
-                .focused($focusedField, equals: .blue)
-            Spacer()
-        }
-        .padding()
-        .toolbar {
-            ToolbarItemGroup(placement: .keyboard) {
-                Button(action: previousField) {
-                    Image(systemName: "chevron.up")
-                }
-                Button(action: nextField) {
-                    Image(systemName: "chevron.down")
-                }
-                Spacer()
-                Button("Done") {
+        ZStack{
+            
+            Color(.white)
+                .ignoresSafeArea()
+                .onTapGesture {
                     focusedField = nil
                 }
+            
+            VStack(spacing: 20) {
+                ColorView(red: red, green: green, blue: blue)
+                    .padding(20)
+                    .onTapGesture {
+                        focusedField = nil
+                    }
+                
+                ColorSliderView(value: $red, color: .red)
+                    .focused($focusedField, equals: .red)
+                ColorSliderView(value: $green, color: .green)
+                    .focused($focusedField, equals: .green)
+                ColorSliderView(value: $blue, color: .blue)
+                    .focused($focusedField, equals: .blue)
+                
+                Spacer()
             }
+            .padding()
+            .toolbar {
+                ToolbarItemGroup(placement: .keyboard) {
+                    Button(action: previousField) {
+                        Image(systemName: "chevron.up")
+                    }
+                    Button(action: nextField) {
+                        Image(systemName: "chevron.down")
+                    }
+                    Spacer()
+                    Button("Done") {
+                        focusedField = nil
+                    }
+                }
+            }
+            
         }
     }
 }
