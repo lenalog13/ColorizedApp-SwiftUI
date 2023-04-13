@@ -20,7 +20,7 @@ struct ColorSliderView: View {
                 .frame(width: 35, alignment: .center)
             
             Slider(value: $value, in: 1...255, step: 1)
-                .accentColor(color)
+                .tint(color)
                 .onChange(of: value) { newValue in
                     text = value.formatted()
                 }
